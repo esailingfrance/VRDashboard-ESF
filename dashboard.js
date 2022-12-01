@@ -178,6 +178,16 @@ import * as NMEA from './nmea.js';
             + '</tr>';
     }
 
+    // sailranks info
+    function raceTimeColumns () {
+        var race = races.get(selRace.value);
+        if (race.type === "record") {
+            return "";
+        } else {
+            return genth("th_racetime", "RaceTime", undefined, sortField == "rank", currentSortOrder)
+        }
+    }
+
     function recordRaceColumns () {
         var race = races.get(selRace.value);
         if (race.type === "record") {
@@ -492,6 +502,7 @@ import * as NMEA from './nmea.js';
                     + '<td>' + (r.bearingFromUs ? r.bearingFromUs + "&#x00B0;" : "-") + '</td>'
                     + '<td>' + bi.sail + '</td>'
                     + '<td>' + (r.state || "-") + '</td>'
+                    + racetimeFields(race,raceTime) // sailrank
                     + '<td>' + (r.pos ? Util.formatPosition(r.pos.lat, r.pos.lon) : "-") + '</td>'
                     + '<td>' + Util.roundTo(bi.heading, 3) + '</td>'
                     + '<td ' + bi.twaStyle + '>' + Util.roundTo(bi.twa, 3) + '</td>'
@@ -503,6 +514,16 @@ import * as NMEA from './nmea.js';
                     + '</tr>';
             }
         }
+    }
+
+    // sailrank
+    function racetimeFields (race, raceTime) {
+        if (race.type === "record") {
+             return "";
+             } else
+             {
+               return '<td>' + raceTime + '</td>'
+             }
     }
 
     function recordRaceFields (race, r) {
