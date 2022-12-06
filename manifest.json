@@ -1,8 +1,8 @@
 {
-    "name": "VR Dashboard",
-    "short_name": "VR Dashboard",
+    "name": "ESF VR Dashboard",
+    "short_name": "ESF VR Dashboard",
     "description": "Monitor boat position & call virtual sailor weather router",
-    "version": "4.21.0",
+    "version": "4.21.1",
     "permissions": [
         "debugger",
         "tabs",
@@ -14,7 +14,7 @@
         "persistent": true
     },
     "page_action": {
-        "default_icon": "zicon.png",
+        "default_icon": "esf.png",
         "default_title": "VR Dashboard"
     },
     "manifest_version": 2
